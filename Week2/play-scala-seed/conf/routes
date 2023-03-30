@@ -14,3 +14,15 @@ GET     /product/:id                controllers.ProductController.getProduct(id:
 POST    /product                    controllers.ProductController.createProduct()
 PUT     /product/:id                controllers.ProductController.updateProduct(id: Int)
 DELETE  /product/:id                controllers.ProductController.deleteProduct(id: Int)
+
+GET     /cart                       controllers.CartController.getCarts()
+GET     /cart/:id                   controllers.CartController.getCart(id: Int)
+POST    /cart                       controllers.CartController.createCart()
+PUT     /cart/:id                   controllers.CartController.updateCart(id: Int)
+DELETE  /cart/:id                   controllers.CartController.deleteCart(id: Int)
+
+GET     /category                    controllers.CategoryController.getCategorys()
+GET     /category/:id                controllers.CategoryController.getCategory(id: Int)
+POST    /category                    controllers.CategoryController.createCategory()
+PUT     /category/:id                controllers.CategoryController.updateCategory(id: Int)
+DELETE  /category/:id                controllers.CategoryController.deleteCategory(id: Int)
