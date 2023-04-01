@@ -1,0 +1,13 @@
+version: "1.0"
+
+services:
+  play-scala-seed:
+    build: .
+    ports:
+      - 9000:9000
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    ports:
+      - 4040:4040
+    command: ["http", "play-scala-seed:9000"]
