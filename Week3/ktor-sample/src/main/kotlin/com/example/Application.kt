@@ -67,7 +67,7 @@ suspend fun main() {
 
 fun Application.restMessageSender(kord: Kord, channelId: String) {
     routing {
-        post("/a") {
+        post("/message") {
             val message = call.receive<String>()
             kord.rest.channel.createMessage(Snowflake(channelId)) {
                 content = message
