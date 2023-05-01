@@ -16,10 +16,13 @@ func main() {
 		panic("failed to connect database")
 	}
 	// Migrate the schema
-	db.AutoMigrate(&models.Product{})
-	db.AutoMigrate(&models.Cart{})
+	db.AutoMigrate(&models.Product{}, &models.Cart{}, &models.Category{})
+
 	db.Create(&models.Product{Name: "produkt47", Price: 100})
 	db.Create(&models.Cart{Amount: 1, Product: "produkt"})
+	db.Create(&models.Category{Name: "produkty47", Products: []models.Product{
+		{Name: "produkt47"},
+	}})
 
 	controller := controller.NewController(db)
 
@@ -30,6 +33,9 @@ func main() {
 	e.DELETE("/products/:id", controller.DeleteProduct)
 
 	e.GET("/carts/:id", controller.GetCart)
+
+	e.GET("/categories", controller.GetCategories)
+	e.GET("/categories/:id", controller.GetCategory)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
