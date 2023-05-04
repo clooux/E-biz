@@ -6,11 +6,13 @@ import (
 
 	"github.com/glebarez/sqlite"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"gorm.io/gorm"
 )
 
 func main() {
 	e := echo.New()
+	e.Use(middleware.CORS())
 	db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -36,6 +38,9 @@ func main() {
 
 	e.GET("/categories", controller.GetCategories)
 	e.GET("/categories/:id", controller.GetCategory)
+
+	e.POST("/payment", controller.Pay)
+	e.POST("/cart", controller.Send)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
