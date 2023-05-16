@@ -14,7 +14,7 @@ func (controller *Controller) GetProduct(c echo.Context) error {
 		panic(err)
 	}
 	var product models.Product
-	controller.db.First(&product, "Id = ?", id)
+	controller.db.First(&product, id)
 	return c.JSON(http.StatusOK, product)
 }
 
@@ -40,7 +40,7 @@ func (controller *Controller) UpdateProduct(c echo.Context) error {
 	}
 	var product models.Product
 	newProduct := new(models.Product)
-	controller.db.First(&product, "Id = ?", id)
+	controller.db.First(&product, id)
 	if err := c.Bind(newProduct); err != nil {
 		return err
 	}
@@ -57,7 +57,7 @@ func (controller *Controller) DeleteProduct(c echo.Context) error {
 		panic(err)
 	}
 	var product models.Product
-	controller.db.First(&product, "Id = ?", id)
+	controller.db.First(&product, id)
 	controller.db.Delete(&product)
 	return c.NoContent(http.StatusNoContent)
 }
