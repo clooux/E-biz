@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { useLocation } from "wouter";
 import AppContext from "../AppContext";
 import Api from "../Api";
 
