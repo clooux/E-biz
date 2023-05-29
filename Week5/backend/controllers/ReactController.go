@@ -24,13 +24,11 @@ func (controller *Controller) Send(c echo.Context) error {
 	if err := c.Bind(cart); err != nil {
 		return err
 	}
-	if cart != nil {
-		money := 0
-		for _, v := range *cart {
-			money += v.Amount * v.Price
-		}
-		return c.JSON(http.StatusOK, money)
+
+	money := 0
+	for _, v := range *cart {
+		money += v.Amount * v.Price
 	}
-	return c.JSON(http.StatusBadRequest, "Not valid cart")
+	return c.JSON(http.StatusOK, money)
 
 }

@@ -1,0 +1,4 @@
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=clooux_E-biz&metric=bugs)](https://sonarcloud.io/summary/new_code?id=clooux_E-biz)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=clooux_E-biz&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=clooux_E-biz)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=clooux_E-biz&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=clooux_E-biz)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=clooux_E-biz&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=clooux_E-biz)
