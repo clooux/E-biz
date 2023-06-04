@@ -7,6 +7,7 @@ import { AppContextProvider } from "./AppContext";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
 import PrivateRoute from "./PrivateRoute";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Router>
           <Navbar>
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
             <PrivateRoute path="/payment" component={Payment} />
             <PrivateRoute path="/cart" component={Cart} />
             <Route path="/products" component={Products} />

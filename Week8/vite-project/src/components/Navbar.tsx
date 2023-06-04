@@ -46,6 +46,11 @@ function Navbar({ children }: { children: React.ReactNode }) {
               </Link>
             </li>
             <li className="mx-5">
+              <Link href="/register">
+                <a className="hover:text-blue-800">Register</a>
+              </Link>
+            </li>
+            <li className="mx-5">
               {!auth ? (
                 <Link to="/login" className="hover:text-blue-800">
                   Log in
