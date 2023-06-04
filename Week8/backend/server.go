@@ -34,6 +34,7 @@ func main() {
 	e.POST("/cart", controller.Send)
 
 	e.POST("/auth", controller.Auth)
+	e.POST("/register", controller.Register)
 	e.GET("/logout", controller.Logout)
 
 	e.Logger.Fatal(e.Start(":1323"))
