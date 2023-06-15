@@ -13,7 +13,7 @@ func (controller *Controller) Auth(c echo.Context) error {
 		return err
 	}
 
-	auth, err := services.checkAuth(*user)
+	auth, err := controller.service.CheckAuth(*user)
 	if !auth && err != nil {
 		return c.JSON(http.StatusOK, "User is logged in")
 	} else if auth && err == nil {
@@ -24,7 +24,7 @@ func (controller *Controller) Auth(c echo.Context) error {
 }
 
 func (controller *Controller) Logout(c echo.Context) error {
-	service.logout()
+	controller.service.Logout()
 
 	return c.JSON(http.StatusOK, "User logged out")
 }
@@ -38,7 +38,7 @@ func (controller *Controller) Register(c echo.Context) error {
 	if user.Name == "" || user.Password == "" {
 		return c.JSON(http.StatusBadRequest, "Invalid email or password")
 	} else {
-		service.register(*user)
+		controller.service.Register(*user)
 		return c.JSON(http.StatusOK, "User registered")
 
 	}

@@ -3,6 +3,7 @@ package main
 import (
 	controller "myapp/controllers"
 	"myapp/models"
+	"myapp/services"
 
 	"github.com/glebarez/sqlite"
 	"github.com/labstack/echo/v4"
@@ -22,7 +23,8 @@ func main() {
 
 	db.Create(&models.Product{Name: "produkt47", Price: 100})
 
-	controller := controller.NewController(db)
+	service := services.NewService()
+	controller := controller.NewController(db, service)
 
 	e.GET("/products", controller.GetProducts)
 	e.GET("/products/:id", controller.GetProduct)

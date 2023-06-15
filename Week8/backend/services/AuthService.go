@@ -7,27 +7,32 @@ import (
 	"golang.org/x/exp/slices"
 )
 
-var isLogged bool = false
+type Service struct {
+	isLogged bool
+	users    []models.User
+}
 
-var users []models.User = []models.User{{Name: "admin@admin", Password: "admin"}}
+func NewService() *Service {
+	return &Service{isLogged: false, users: []models.User{{Name: "admin@admin", Password: "admin"}}}
+}
 
-func checkAuth(user models.User) (bool, error) {
-	if isLogged {
+func (service *Service) CheckAuth(user models.User) (bool, error) {
+	if service.isLogged {
 		return false, errors.New("loggedIn")
 	}
 
-	if slices.Contains(users, user) {
-		isLogged = true
+	if slices.Contains(service.users, user) {
+		service.isLogged = true
 		return true, nil
 	}
 
 	return false, nil
 }
 
-func register(user models.User) {
-	users = append(users, user)
+func (service *Service) Register(user models.User) {
+	service.users = append(service.users, user)
 }
 
-func logout() {
-	isLogged = false
+func (service *Service) Logout() {
+	service.isLogged = false
 }
