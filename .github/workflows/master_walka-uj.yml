@@ -8,10 +8,14 @@ on:
     branches:
       - master
   workflow_dispatch:
+  
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Week8/vite-project
 
     steps:
       - uses: actions/checkout@v2
