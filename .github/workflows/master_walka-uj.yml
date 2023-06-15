@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: Week8/vite-project/dist
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
