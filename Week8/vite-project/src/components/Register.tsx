@@ -3,7 +3,7 @@ import Api from "../Api";
 import { useLocation } from "wouter";
 
 function Register() {
-  const [location, navigate] = useLocation();
+  const [, navigate] = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

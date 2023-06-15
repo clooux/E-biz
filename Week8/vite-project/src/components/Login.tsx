@@ -3,7 +3,7 @@ import Api from "../Api";
 import { useLocation } from "wouter";
 
 function Login() {
-  const [location, navigate] = useLocation();
+  const [, navigate] = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +17,7 @@ function Login() {
     }
     const path = sessionStorage.getItem("path");
     if (path) {
-      navigate(path, { replace: true });
+      navigate(path);
       sessionStorage.setItem("path", "");
     } else {
       navigate("/products");

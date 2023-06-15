@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import Api from "../Api";
 
 function Navbar({ children }: { children: React.ReactNode }) {
-  const [location, navigate] = useLocation();
+  const [, navigate] = useLocation();
   let auth = sessionStorage.getItem("auth");
 
   useEffect(() => {
