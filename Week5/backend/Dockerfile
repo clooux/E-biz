@@ -5,15 +5,7 @@ RUN groupadd -g 1001 myuser && \
 
 WORKDIR /app
 
-RUN ls -alh
-
-COPY ./controllers /app/controllers
-COPY ./models /app/models
-COPY ./go.mod /app/go.mod
-COPY ./go.sum /app/go.sum
-COPY ./server.go /app/server.go
-
-RUN ls -alh
+COPY . /app/
 
 RUN go build -o app
 
