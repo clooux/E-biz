@@ -7,9 +7,9 @@ WORKDIR /app
 
 COPY ./controllers /app/controllers
 COPY ./models /app/models
-COPY ./go.mod /app/go.mod
-COPY ./go.sum /app/go.sum
-COPY ./server.go /app/server.go
+COPY go.mod /app/go.mod
+COPY go.sum /app/go.sum
+COPY server.go /app/server.go
 
 RUN go build -o app
 
