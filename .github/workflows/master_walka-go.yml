@@ -52,4 +52,4 @@ jobs:
         app-name: 'walka-go'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_ad95985068c14725a858c768edaeba62 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_cb1ad1cd1ea5412b96c5d3032493bd41 }}/clooux/obiekt-go:${{ github.sha }}'
+        images: 'clooux/obiekt-go:${{ github.sha }}'
