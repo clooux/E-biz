@@ -35,7 +35,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           parallel: true
-          project: Walka6/
+          working-directory: Week6/
 
   build_backend:
     runs-on: "ubuntu-latest"
@@ -84,7 +84,7 @@ jobs:
           images: "clooux/obiekt-go:${{ github.sha }}"
 
   send_email:
-    needs: [build_and_deploy_frontend, deploy_backend]
+    needs: [run_tests, deploy_backend]
     name: Send email
     runs-on: ubuntu-latest
     steps:
