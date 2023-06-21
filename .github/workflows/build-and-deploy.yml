@@ -9,7 +9,7 @@ on:
 jobs:
   build_and_deploy_frontend:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build and Deploy React App
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,6 +25,7 @@ jobs:
 
   build_backend:
     runs-on: "ubuntu-latest"
+    name: Build Go App 
 
     steps:
       - uses: actions/checkout@v2
@@ -52,6 +53,7 @@ jobs:
 
   deploy_backend:
     runs-on: ubuntu-latest
+    name: Deploy Go App
     needs: build_backend
     environment:
       name: "production"
@@ -69,6 +71,7 @@ jobs:
 
   send_email:
     needs: [build_and_deploy_frontend, deploy_backend]
+    name: Send email
     runs-on: ubuntu-latest
     steps:
       - name: Send mail
