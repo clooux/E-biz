@@ -83,7 +83,7 @@ jobs:
           images: "clooux/obiekt-go:${{ github.sha }}"
 
   send_email:
-    needs: [run_tests, deploy_backend]
+    needs: [build_and_deploy_frontend, deploy_backend]
     name: Send email
     runs-on: ubuntu-latest
     steps:
