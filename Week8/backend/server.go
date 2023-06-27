@@ -38,6 +38,8 @@ func main() {
 	e.POST("/auth", controller.Auth)
 	e.POST("/register", controller.Register)
 	e.GET("/logout", controller.Logout)
+	e.GET("/oauth/google", controller.GoogleAuth)
+	e.GET("/oauth/google/callback", controller.GoogleCallback)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
